@@ -3,8 +3,6 @@ const activeContent = "show";
 const tabs = document.querySelectorAll(".tab__tabs");
 const tabContent = document.querySelectorAll(".tab__content");
 
-tab;
-
 tabs.forEach(element => element.addEventListener("click", toggle));
 
 function toggle() {
