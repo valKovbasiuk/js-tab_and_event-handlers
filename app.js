@@ -1,3 +1,5 @@
+// js tabs
+
 const activeTab = "active";
 const activeContent = "show";
 const Tabs = document.querySelector(".js-tabs");
@@ -17,16 +19,13 @@ function toggle() {
     .classList.add(activeContent);
 }
 
-window.addEventListener("load", function() {
-  alert("Page has been loaded!");
-});
+// random colors for table cells
 
 const colorTable = document.querySelector("table");
 const colorTableCells = colorTable.querySelectorAll("td");
 
 colorTable.addEventListener("mouseover", function(e) {
   let randomColor = () => Math.floor(Math.random() * 256);
-  // let oldColor = e.target.style.backgroundColor;
   e.target.style.backgroundColor =
     "rgb(" + randomColor() + "," + randomColor() + "," + randomColor() + ")";
 });
@@ -35,15 +34,19 @@ colorTable.addEventListener("dblclick", function(e) {
   colorTableCells.forEach(element => (element.style.backgroundColor = "white"));
 });
 
-const elementHSL = document.querySelector("body");
-const shiftHSL = Math.floor(Math.random() * 360);
-let scrollPosition = 0;
-let hslColor = function(e) {
-  scrollPosition = Math.floor(window.scrollY / 5);
-  window.requestAnimationFrame(function() {
-    elementHSL.style.backgroundColor =
-      "hsl(" + ((scrollPosition + shiftHSL) % 360) + ", 100%, 80%)";
-    console.log("i see scroll " + scrollPosition);
-  });
-};
-window.addEventListener("scroll", hslColor);
+// change body background on scroll and just for fun used IIFE
+
+(function() {
+  const elementHSL = document.querySelector("body");
+  const shiftHSL = Math.floor(Math.random() * 360);
+  let scrollPosition = 0;
+  let hslColor = function(e) {
+    scrollPosition = Math.floor(window.scrollY / 5);
+    window.requestAnimationFrame(function() {
+      elementHSL.style.backgroundColor =
+        "hsl(" + ((scrollPosition + shiftHSL) % 360) + ", 100%, 80%)";
+      console.log("i see scroll " + scrollPosition);
+    });
+  };
+  window.addEventListener("scroll", hslColor);
+})();
