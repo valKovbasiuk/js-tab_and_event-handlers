@@ -35,10 +35,10 @@ colorTable.addEventListener("dblclick", function(e) {
   colorTableCells.forEach(element => (element.style.backgroundColor = "white"));
 });
 
-var elementHSL = document.querySelector("body");
-var scrollPosition = 0;
-var shiftHSL = Math.floor(Math.random() * 360);
-const hslColor = function(e) {
+const elementHSL = document.querySelector("body");
+const shiftHSL = Math.floor(Math.random() * 360);
+let scrollPosition = 0;
+let hslColor = function(e) {
   scrollPosition = Math.floor(window.scrollY / 5);
   window.requestAnimationFrame(function() {
     elementHSL.style.backgroundColor =
